@@ -1,0 +1,13 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class entity-name="test" lazy="true" name="cfc:test" table="test">
+        <id name="id" type="int">
+            <column length="10" name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name" type="string">
+            <column length="50" name="name" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

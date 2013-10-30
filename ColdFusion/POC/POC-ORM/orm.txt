@@ -1,0 +1,2 @@
+http://www.bennadel.com/blog/1687-Learning-ColdFusion-9-EntityNew-vs-The-NEW-Operator-CreateObject-.htm
+http://www.manjukiran.net/2009/07/14/coldfusion-orm-using-crud-functions/
