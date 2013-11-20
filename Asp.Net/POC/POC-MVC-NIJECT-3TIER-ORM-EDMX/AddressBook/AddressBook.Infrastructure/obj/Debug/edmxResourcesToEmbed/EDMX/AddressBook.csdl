@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AddressBookModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="AddressBookEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Addresses" EntityType="AddressBookModel.Address" />
+    <EntitySet Name="CountryMasters" EntityType="AddressBookModel.CountryMaster" />
+    <EntitySet Name="HobbyAddresses" EntityType="AddressBookModel.HobbyAddress" />
+    <EntitySet Name="HobbyMasters" EntityType="AddressBookModel.HobbyMaster" />
+    <EntitySet Name="LanguageAddresses" EntityType="AddressBookModel.LanguageAddress" />
+    <EntitySet Name="LanguageMasters" EntityType="AddressBookModel.LanguageMaster" />
+    <EntitySet Name="Permissions" EntityType="AddressBookModel.Permission" />
+    <EntitySet Name="People" EntityType="AddressBookModel.Person" />
+    <EntitySet Name="Roles" EntityType="AddressBookModel.Role" />
+    <EntitySet Name="StateMasters" EntityType="AddressBookModel.StateMaster" />
+    <AssociationSet Name="FK_Address_StateMaster1" Association="AddressBookModel.FK_Address_StateMaster1">
+      <End Role="StateMaster" EntitySet="StateMasters" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HobbyAddress_Address" Association="AddressBookModel.FK_HobbyAddress_Address">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="HobbyAddress" EntitySet="HobbyAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageAddress_Address" Association="AddressBookModel.FK_LanguageAddress_Address">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="LanguageAddress" EntitySet="LanguageAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Address" Association="AddressBookModel.FK_Person_Address">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="Person" EntitySet="People" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StateMaster_CountryMaster" Association="AddressBookModel.FK_StateMaster_CountryMaster">
+      <End Role="CountryMaster" EntitySet="CountryMasters" />
+      <End Role="StateMaster" EntitySet="StateMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HobbyAddress_HobbyMaster" Association="AddressBookModel.FK_HobbyAddress_HobbyMaster">
+      <End Role="HobbyMaster" EntitySet="HobbyMasters" />
+      <End Role="HobbyAddress" EntitySet="HobbyAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageAddress_LanguageMaster" Association="AddressBookModel.FK_LanguageAddress_LanguageMaster">
+      <End Role="LanguageMaster" EntitySet="LanguageMasters" />
+      <End Role="LanguageAddress" EntitySet="LanguageAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permission_Person" Association="AddressBookModel.FK_Permission_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="Permission" EntitySet="Permissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Permission_Role" Association="AddressBookModel.FK_Permission_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Permission" EntitySet="Permissions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="Int32" Nullable="false" />
+    <Property Name="StateID" Type="Int32" Nullable="false" />
+    <Property Name="PhoneNumber" Type="Int64" Nullable="false" />
+    <Property Name="CompleteAddress" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="PinCode" Type="String" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="DateOfBirth" Type="DateTime" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="PhotoName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="StateMaster" Relationship="AddressBookModel.FK_Address_StateMaster1" FromRole="Address" ToRole="StateMaster" />
+    <NavigationProperty Name="HobbyAddresses" Relationship="AddressBookModel.FK_HobbyAddress_Address" FromRole="Address" ToRole="HobbyAddress" />
+    <NavigationProperty Name="LanguageAddresses" Relationship="AddressBookModel.FK_LanguageAddress_Address" FromRole="Address" ToRole="LanguageAddress" />
+    <NavigationProperty Name="People" Relationship="AddressBookModel.FK_Person_Address" FromRole="Address" ToRole="Person" />
+  </EntityType>
+  <EntityType Name="CountryMaster">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="CountryName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="StateMasters" Relationship="AddressBookModel.FK_StateMaster_CountryMaster" FromRole="CountryMaster" ToRole="StateMaster" />
+  </EntityType>
+  <EntityType Name="HobbyAddress">
+    <Key>
+      <PropertyRef Name="HobbyAddressID" />
+    </Key>
+    <Property Name="HobbyAddressID" Type="Int32" Nullable="false" />
+    <Property Name="AddressID" Type="Int32" Nullable="false" />
+    <Property Name="HobbyID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Address" Relationship="AddressBookModel.FK_HobbyAddress_Address" FromRole="HobbyAddress" ToRole="Address" />
+    <NavigationProperty Name="HobbyMaster" Relationship="AddressBookModel.FK_HobbyAddress_HobbyMaster" FromRole="HobbyAddress" ToRole="HobbyMaster" />
+  </EntityType>
+  <EntityType Name="HobbyMaster">
+    <Key>
+      <PropertyRef Name="HobbyID" />
+    </Key>
+    <Property Name="HobbyID" Type="Int32" Nullable="false" />
+    <Property Name="HobbyName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="HobbyAddresses" Relationship="AddressBookModel.FK_HobbyAddress_HobbyMaster" FromRole="HobbyMaster" ToRole="HobbyAddress" />
+  </EntityType>
+  <EntityType Name="LanguageAddress">
+    <Key>
+      <PropertyRef Name="LanguageAddressID" />
+    </Key>
+    <Property Name="LanguageAddressID" Type="Int32" Nullable="false" />
+    <Property Name="AddressID" Type="Int32" Nullable="false" />
+    <Property Name="LanguageID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Address" Relationship="AddressBookModel.FK_LanguageAddress_Address" FromRole="LanguageAddress" ToRole="Address" />
+    <NavigationProperty Name="LanguageMaster" Relationship="AddressBookModel.FK_LanguageAddress_LanguageMaster" FromRole="LanguageAddress" ToRole="LanguageMaster" />
+  </EntityType>
+  <EntityType Name="LanguageMaster">
+    <Key>
+      <PropertyRef Name="LanguageID" />
+    </Key>
+    <Property Name="LanguageID" Type="Int32" Nullable="false" />
+    <Property Name="LanguageName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="LanguageAddresses" Relationship="AddressBookModel.FK_LanguageAddress_LanguageMaster" FromRole="LanguageMaster" ToRole="LanguageAddress" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="PermissionID" />
+    </Key>
+    <Property Name="PermissionID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="PersonID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Person" Relationship="AddressBookModel.FK_Permission_Person" FromRole="Permission" ToRole="Person" />
+    <NavigationProperty Name="Role" Relationship="AddressBookModel.FK_Permission_Role" FromRole="Permission" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonID" />
+    </Key>
+    <Property Name="PersonID" Type="Int32" Nullable="false" />
+    <Property Name="AddressID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Address" Relationship="AddressBookModel.FK_Person_Address" FromRole="Person" ToRole="Address" />
+    <NavigationProperty Name="Permissions" Relationship="AddressBookModel.FK_Permission_Person" FromRole="Person" ToRole="Permission" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Permissions" Relationship="AddressBookModel.FK_Permission_Role" FromRole="Role" ToRole="Permission" />
+  </EntityType>
+  <EntityType Name="StateMaster">
+    <Key>
+      <PropertyRef Name="StateID" />
+    </Key>
+    <Property Name="StateID" Type="Int32" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="StateName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Addresses" Relationship="AddressBookModel.FK_Address_StateMaster1" FromRole="StateMaster" ToRole="Address" />
+    <NavigationProperty Name="CountryMaster" Relationship="AddressBookModel.FK_StateMaster_CountryMaster" FromRole="StateMaster" ToRole="CountryMaster" />
+  </EntityType>
+  <Association Name="FK_Address_StateMaster1">
+    <End Role="StateMaster" Type="AddressBookModel.StateMaster" Multiplicity="1" />
+    <End Role="Address" Type="AddressBookModel.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateMaster">
+        <PropertyRef Name="StateID" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="StateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HobbyAddress_Address">
+    <End Role="Address" Type="AddressBookModel.Address" Multiplicity="1" />
+    <End Role="HobbyAddress" Type="AddressBookModel.HobbyAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="HobbyAddress">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageAddress_Address">
+    <End Role="Address" Type="AddressBookModel.Address" Multiplicity="1" />
+    <End Role="LanguageAddress" Type="AddressBookModel.LanguageAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="LanguageAddress">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Address">
+    <End Role="Address" Type="AddressBookModel.Address" Multiplicity="1" />
+    <End Role="Person" Type="AddressBookModel.Person" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="AddressID" />
+      </Principal>
+      <Dependent Role="Person">
+        <PropertyRef Name="AddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StateMaster_CountryMaster">
+    <End Role="CountryMaster" Type="AddressBookModel.CountryMaster" Multiplicity="1" />
+    <End Role="StateMaster" Type="AddressBookModel.StateMaster" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryMaster">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="StateMaster">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HobbyAddress_HobbyMaster">
+    <End Role="HobbyMaster" Type="AddressBookModel.HobbyMaster" Multiplicity="1" />
+    <End Role="HobbyAddress" Type="AddressBookModel.HobbyAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HobbyMaster">
+        <PropertyRef Name="HobbyID" />
+      </Principal>
+      <Dependent Role="HobbyAddress">
+        <PropertyRef Name="HobbyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageAddress_LanguageMaster">
+    <End Role="LanguageMaster" Type="AddressBookModel.LanguageMaster" Multiplicity="1" />
+    <End Role="LanguageAddress" Type="AddressBookModel.LanguageAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LanguageMaster">
+        <PropertyRef Name="LanguageID" />
+      </Principal>
+      <Dependent Role="LanguageAddress">
+        <PropertyRef Name="LanguageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permission_Person">
+    <End Role="Person" Type="AddressBookModel.Person" Multiplicity="1" />
+    <End Role="Permission" Type="AddressBookModel.Permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonID" />
+      </Principal>
+      <Dependent Role="Permission">
+        <PropertyRef Name="PersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Permission_Role">
+    <End Role="Role" Type="AddressBookModel.Role" Multiplicity="1" />
+    <End Role="Permission" Type="AddressBookModel.Permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Permission">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

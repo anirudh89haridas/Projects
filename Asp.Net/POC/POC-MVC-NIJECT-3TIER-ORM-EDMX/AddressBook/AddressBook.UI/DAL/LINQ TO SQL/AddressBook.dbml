@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AddressBook" Class="AddressBookDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;AttachDbFilename=|DataDirectory|\AddressBook.mdf;Integrated Security=True;User Instance=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AddressBookConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CountryMaster" Member="CountryMasters">
+    <Type Name="CountryMaster">
+      <Column Name="CountryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CountryName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="CountryMaster_StateMaster" Member="StateMasters" ThisKey="CountryID" OtherKey="CountryID" Type="StateMaster" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HobbyAddress" Member="HobbyAddresses">
+    <Type Name="HobbyAddress">
+      <Column Name="HobbyAddressID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PersonAddressID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HobbyID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="HobbyMaster_HobbyAddress" Member="HobbyMaster" ThisKey="HobbyID" OtherKey="HobbyID" Type="HobbyMaster" IsForeignKey="true" />
+      <Association Name="PersonAddress_HobbyAddress" Member="PersonAddress" ThisKey="PersonAddressID" OtherKey="PersonAddressID" Type="PersonAddress" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HobbyMaster" Member="HobbyMasters">
+    <Type Name="HobbyMaster">
+      <Column Name="HobbyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HobbyName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="HobbyMaster_HobbyAddress" Member="HobbyAddresses" ThisKey="HobbyID" OtherKey="HobbyID" Type="HobbyAddress" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LanguageAddress" Member="LanguageAddresses">
+    <Type Name="LanguageAddress">
+      <Column Name="LanguageAddressID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PersonAddressID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="LanguageMaster_LanguageAddress" Member="LanguageMaster" ThisKey="LanguageID" OtherKey="LanguageID" Type="LanguageMaster" IsForeignKey="true" />
+      <Association Name="PersonAddress_LanguageAddress" Member="PersonAddress" ThisKey="PersonAddressID" OtherKey="PersonAddressID" Type="PersonAddress" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LanguageMaster" Member="LanguageMasters">
+    <Type Name="LanguageMaster">
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LanguageName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="LanguageMaster_LanguageAddress" Member="LanguageAddresses" ThisKey="LanguageID" OtherKey="LanguageID" Type="LanguageAddress" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Permission" Member="Permissions">
+    <Type Name="Permission">
+      <Column Name="PermissionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PersonID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Person_Permission" Member="Person" ThisKey="PersonID" OtherKey="PersonID" Type="Person" IsForeignKey="true" />
+      <Association Name="Role_Permission" Member="Role" ThisKey="RoleID" OtherKey="RoleID" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Person" Member="Persons">
+    <Type Name="Person">
+      <Column Name="PersonID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PersonAddressID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Person_Permission" Member="Permissions" ThisKey="PersonID" OtherKey="PersonID" Type="Permission" />
+      <Association Name="PersonAddress_Person" Member="PersonAddress" ThisKey="PersonAddressID" OtherKey="PersonAddressID" Type="PersonAddress" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PersonAddress" Member="PersonAddresses">
+    <Type Name="PersonAddress">
+      <Column Name="PersonAddressID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PhoneNumber" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="CompleteAddress" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PinCode" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="PhotoName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="PersonAddress_HobbyAddress" Member="HobbyAddresses" ThisKey="PersonAddressID" OtherKey="PersonAddressID" Type="HobbyAddress" />
+      <Association Name="PersonAddress_LanguageAddress" Member="LanguageAddresses" ThisKey="PersonAddressID" OtherKey="PersonAddressID" Type="LanguageAddress" />
+      <Association Name="PersonAddress_Person" Member="Persons" ThisKey="PersonAddressID" OtherKey="PersonAddressID" Type="Person" />
+      <Association Name="StateMaster_PersonAddress" Member="StateMaster" ThisKey="StateID" OtherKey="StateID" Type="StateMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Role" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Role_Permission" Member="Permissions" ThisKey="RoleID" OtherKey="RoleID" Type="Permission" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StateMaster" Member="StateMasters">
+    <Type Name="StateMaster">
+      <Column Name="StateID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CountryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StateName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="StateMaster_PersonAddress" Member="PersonAddresses" ThisKey="StateID" OtherKey="StateID" Type="PersonAddress" />
+      <Association Name="CountryMaster_StateMaster" Member="CountryMaster" ThisKey="CountryID" OtherKey="CountryID" Type="CountryMaster" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

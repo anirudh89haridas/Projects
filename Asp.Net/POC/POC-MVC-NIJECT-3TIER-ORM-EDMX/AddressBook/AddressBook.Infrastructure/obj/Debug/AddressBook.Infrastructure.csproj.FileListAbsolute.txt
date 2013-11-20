@@ -1,0 +1,10 @@
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Infrastructure\bin\Debug\AddressBook.Infrastructure.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Infrastructure\bin\Debug\AddressBook.Infrastructure.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Infrastructure\obj\Debug\ResolveAssemblyReference.cache
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Infrastructure\obj\Debug\AddressBook.Infrastructure.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Infrastructure\obj\Debug\AddressBook.Infrastructure.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Infrastructure\bin\Debug\EntityFramework.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Infrastructure\bin\Debug\EntityFramework.xml
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Infrastructure\bin\Debug\AddressBook.Domain.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Infrastructure\bin\Debug\AddressBook.Domain.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Infrastructure\bin\Debug\AddressBook.Infrastructure.dll.config

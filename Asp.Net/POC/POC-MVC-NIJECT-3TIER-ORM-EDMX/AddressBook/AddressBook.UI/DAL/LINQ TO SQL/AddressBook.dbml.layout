@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14, 13" name="AddressBook">
+  <DataContextMoniker Name="/AddressBookDataContext" />
+  <nestedChildShapes>
+    <classShape Id="05763e7a-eb31-4ec7-85b4-52706a96dd26" absoluteBounds="0.75, 4.25, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/AddressBookDataContext/CountryMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1150bb56-76ed-4703-b5c5-4df9156317e9" absoluteBounds="0.765, 4.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a542d9b7-0d3d-404a-ac06-0c438404e615" absoluteBounds="9, 4.125, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/AddressBookDataContext/HobbyAddress" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14d5e796-ef62-467d-9ce2-8ac0af43a7b5" absoluteBounds="9.015, 4.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fc86445c-53e3-4f3b-81b6-448b01f95f33" absoluteBounds="6.25, 7.25, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/AddressBookDataContext/HobbyMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c08bdd44-1954-407e-b2d2-c09087207a18" absoluteBounds="6.265, 7.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ed6fc58-c80a-48e1-995f-e503854ed727" absoluteBounds="9, 1.125, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/AddressBookDataContext/LanguageAddress" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b15d1434-56c2-4a93-80b1-a7ea0ced5fcc" absoluteBounds="9.015, 1.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3a8482e-10e5-4a7a-bf86-7223678209f9" absoluteBounds="6.25, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/AddressBookDataContext/LanguageMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12bd7050-83e3-4380-a91c-8bc35e51d3c7" absoluteBounds="6.265, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="16eae80b-637d-4c7f-aaf9-00cc7244aa9f" absoluteBounds="11.75, 8.375, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/AddressBookDataContext/Permission" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e88a22d0-b807-4adf-96c3-147c7e1c1efb" absoluteBounds="11.765, 8.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a5450fd1-3524-4cc4-ae26-64a99552be31" absoluteBounds="9, 8.125, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/AddressBookDataContext/Person" />
+      <nestedChildShapes>
+        <elementListCompartment Id="949eac2a-0c46-46c2-96b1-c0513ffa1fd5" absoluteBounds="9.015, 8.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="01abe45e-5956-4314-b92e-04e47bac90bf" absoluteBounds="6.25, 3.625, 2, 2.3478011067708331">
+      <DataClassMoniker Name="/AddressBookDataContext/PersonAddress" />
+      <nestedChildShapes>
+        <elementListCompartment Id="156d6af7-10ef-4e20-bd38-2c301f8e02b5" absoluteBounds="6.265, 4.085, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="993421cc-f084-4c98-87c6-2c6f1625bca4" absoluteBounds="9, 11.5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/AddressBookDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="93d58150-8a76-4783-9f5a-7bd4491e60e0" absoluteBounds="9.015, 11.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a01cfce6-b7da-4127-9812-37582a70360a" absoluteBounds="3.5, 4.125, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/AddressBookDataContext/StateMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="13bd036d-8b8d-4485-8cca-45887b158b53" absoluteBounds="3.515, 4.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 7.25091745577925); (8.625 : 6.87591745577925); (8.625 : 4.81814697265625); (9 : 4.81814697265625)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AddressBookDataContext/HobbyMaster/HobbyMaster_HobbyAddress" />
+      <nodes>
+        <classShapeMoniker Id="fc86445c-53e3-4f3b-81b6-448b01f95f33" />
+        <classShapeMoniker Id="a542d9b7-0d3d-404a-ac06-0c438404e615" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 1.53449625651042); (9 : 1.53449625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AddressBookDataContext/LanguageMaster/LanguageMaster_LanguageAddress" />
+      <nodes>
+        <classShapeMoniker Id="b3a8482e-10e5-4a7a-bf86-7223678209f9" />
+        <classShapeMoniker Id="4ed6fc58-c80a-48e1-995f-e503854ed727" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 9.06814697265625); (11.75 : 9.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AddressBookDataContext/Person/Person_Permission" />
+      <nodes>
+        <classShapeMoniker Id="a5450fd1-3524-4cc4-ae26-64a99552be31" />
+        <classShapeMoniker Id="16eae80b-637d-4c7f-aaf9-00cc7244aa9f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.40907348632813); (9 : 4.40907348632813)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AddressBookDataContext/PersonAddress/PersonAddress_HobbyAddress" />
+      <nodes>
+        <classShapeMoniker Id="01abe45e-5956-4314-b92e-04e47bac90bf" />
+        <classShapeMoniker Id="a542d9b7-0d3d-404a-ac06-0c438404e615" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 3.625); (8.625 : 3.25); (8.625 : 2.05414710091146); (9 : 2.05414710091146)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AddressBookDataContext/PersonAddress/PersonAddress_LanguageAddress" />
+      <nodes>
+        <classShapeMoniker Id="01abe45e-5956-4314-b92e-04e47bac90bf" />
+        <classShapeMoniker Id="4ed6fc58-c80a-48e1-995f-e503854ed727" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 5.91126164523237); (8.56607443490112 : 6.22733608013349 : JumpStart); (8.68392556509888 : 6.34518721033125 : JumpEnd); (8.8125 : 6.47376164523237); (8.8125 : 9.10659912109375); (9 : 9.10659912109375)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AddressBookDataContext/PersonAddress/PersonAddress_Person" />
+      <nodes>
+        <classShapeMoniker Id="01abe45e-5956-4314-b92e-04e47bac90bf" />
+        <classShapeMoniker Id="a5450fd1-3524-4cc4-ae26-64a99552be31" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11 : 12.0969962565104); (12.75 : 12.0969962565104); (12.75 : 9.7612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AddressBookDataContext/Role/Role_Permission" />
+      <nodes>
+        <classShapeMoniker Id="993421cc-f084-4c98-87c6-2c6f1625bca4" />
+        <classShapeMoniker Id="16eae80b-637d-4c7f-aaf9-00cc7244aa9f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.81814697265625); (6.25 : 4.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AddressBookDataContext/StateMaster/StateMaster_PersonAddress" />
+      <nodes>
+        <classShapeMoniker Id="a01cfce6-b7da-4127-9812-37582a70360a" />
+        <classShapeMoniker Id="01abe45e-5956-4314-b92e-04e47bac90bf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.84699625651042); (3.5 : 4.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/AddressBookDataContext/CountryMaster/CountryMaster_StateMaster" />
+      <nodes>
+        <classShapeMoniker Id="05763e7a-eb31-4ec7-85b4-52706a96dd26" />
+        <classShapeMoniker Id="a01cfce6-b7da-4127-9812-37582a70360a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,227 @@
+﻿@model AddressBook.ViewModel.AddContact
+@{
+    ViewBag.Title = "Add Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";    
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm("Index", "AddContact", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{ 
+@*@Html.Raw(Json.Encode(Model.Countries))*@    
+    <fieldset>
+        <legend>Registration Form</legend>
+        <fieldset>
+            <legend>Login Details</legend>
+            <div class="Form">
+                @Html.ValidationSummary()
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="UserName">
+                        User Name:</label>
+                </div>
+                <div class="FormField">
+                    @Html.TextBoxFor(x => x.UserName)
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="Password">
+                        Password:</label>
+                </div>
+                <div class="FormField">
+                    @Html.PasswordFor(x => x.Password)
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="ConfirmPassword">
+                        Confirm Password:</label>
+                </div>
+                <div class="FormField">
+                    @Html.PasswordFor(x => x.ConfirmPassword)
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Address Details </legend>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="FirstName">
+                        First Name:</label>
+                </div>
+                <div class="FormField">
+                    @Html.TextBoxFor(x => x.FirstName)
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="LastName">
+                        Last Name:</label>
+                </div>
+                <div class="FormField">
+                    @Html.TextBoxFor(x => x.LastName)
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="Gender">
+                        Gender:</label>
+                </div>
+                <div class="FormField">
+                    @Html.RadioButtonFor(x => x.Gender, "Male")
+                    Male
+                    @Html.RadioButtonFor(x => x.Gender, "Female")
+                    Female
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="Gender">
+                        Date Of Birth:</label>
+                </div>
+                <div class="FormField">
+                    @Html.TextBoxFor(x => x.DateOfBirth, new { @class = "date" })
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="ContactNumber">
+                        Contact Number:</label>
+                </div>
+                <div class="FormField">
+                    @Html.TextBoxFor(x => x.ContactNumber)
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="CompleteAddress">
+                        Complete Address:</label>
+                </div>
+                <div class="FormField">
+                    @Html.TextAreaFor(x => x.CompleteAddress, new { @rows = 5 })
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="PinCode">
+                        Pin Code:</label>
+                </div>
+                <div class="FormField">
+                    @Html.TextBoxFor(x => x.PinCode)
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="Country">
+                        Country:</label>
+                </div>
+                <div class="FormField">
+                    @Html.DropDownListFor(model => model.SelectedCountry, Model.Countries, "Select A Country")
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="State">
+                        State:</label>
+                </div>
+                <div class="FormField">
+                    @Html.DropDownListFor(model => model.SelectedState, Model.States, "Select A State")
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="LanguagesKnown">
+                        Languages Known:</label>
+                </div>
+                <div class="FormField">
+                    @Html.ListBoxFor(model => model.SelectedLanguages, Model.Languages)
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="UploadPhoto">
+                        Upload Photo:</label>
+                </div>
+                <div class="FormField">
+                    <input id="UploadPhoto" type="file" name="UploadPhoto" accept="image/*" />
+                </div>
+            </div>
+            <div class="Form">
+                <div class="FormLabel">
+                    <label for="Hobbies">
+                        Hobbies:</label>
+                </div>
+                <div class="FormField">
+                    @for (int i = 0; i < Model.Hobbies.Count; i++)
+                    {
+                        <div>
+                            @Html.CheckBoxFor(x => x.IsHobbies[i])
+                            @Html.HiddenFor(x => x.Hobbies[i].Value)
+                            @Html.DisplayFor(x => x.Hobbies[i].Text)
+                        </div>
+                    }
+                </div>
+            </div>
+        </fieldset>
+        <div>
+            <input type="submit" value="Register" />
+        </div>
+    </fieldset>
+}
+@section Scripts{
+    
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#DateOfBirth').datepicker({
+                dateFormat: 'dd/MM/yy',
+                showStatus: true,
+                showWeeks: true,
+                highlightWeek: true,
+                numberOfMonths: 1,
+                showAnim: "scale",
+                showOptions: {
+                    origin: ["top", "left"]
+                }
+            });
+            $("#SelectedCountry").change(function () {
+                var MySelect = "#SelectedState";
+                if ($(this).val() == "") {
+                    $(MySelect).prop("disabled", true);
+                    $(MySelect + " option").remove();
+                    $(MySelect).append($("<option>").val("").text("Select A State"));
+                }
+                else {
+                    var url = "/AddContact/GetAllState/" + $(this).val();
+                    $.ajax({
+                        type: "GET",
+                        url: url,
+                        dataType: "json",
+                        beforeSend: function () {
+
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    }).done(function (result) {
+
+                        $(MySelect + " option").remove();
+                        $(MySelect).append($("<option>").val("").text("Select A State"));
+                        $(MySelect).prop("disabled", false);
+
+                        $.each(result, function (index, item) {
+                            $(MySelect).append(
+                         $("<option>").val(item.Value).text(item.Text)
+                        );
+                        });
+                    });
+                }
+
+            });
+
+
+        })
+    </script>
+}

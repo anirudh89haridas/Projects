@@ -1,0 +1,199 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Role](
+	[RoleID] [int] IDENTITY(1,1) NOT NULL,
+	[RoleName] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+ CONSTRAINT [PK_Role] PRIMARY KEY CLUSTERED 
+(
+	[RoleID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CountryMaster](
+	[CountryID] [int] IDENTITY(1,1) NOT NULL,
+	[CountryName] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+ CONSTRAINT [PK_CountryMaster] PRIMARY KEY CLUSTERED 
+(
+	[CountryID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HobbyMaster](
+	[HobbyID] [int] IDENTITY(1,1) NOT NULL,
+	[HobbyName] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+ CONSTRAINT [PK_HobbyMaster] PRIMARY KEY CLUSTERED 
+(
+	[HobbyID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LanguageMaster](
+	[LanguageID] [int] IDENTITY(1,1) NOT NULL,
+	[LanguageName] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+ CONSTRAINT [PK_LanguageMaster] PRIMARY KEY CLUSTERED 
+(
+	[LanguageID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[StateMaster](
+	[StateID] [int] IDENTITY(1,1) NOT NULL,
+	[CountryID] [int] NOT NULL,
+	[StateName] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+ CONSTRAINT [PK_StateMaster] PRIMARY KEY CLUSTERED 
+(
+	[StateID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PersonAddress](
+	[PersonAddressID] [int] IDENTITY(1,1) NOT NULL,
+	[StateID] [int] NOT NULL,
+	[PhoneNumber] [bigint] NULL,
+	[CompleteAddress] [varchar](200) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[PinCode] [varchar](15) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[DateOfBirth] [date] NULL,
+	[Gender] [varchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[PhotoName] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+ CONSTRAINT [PK_Address] PRIMARY KEY CLUSTERED 
+(
+	[PersonAddressID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LanguageAddress](
+	[LanguageAddressID] [int] IDENTITY(1,1) NOT NULL,
+	[PersonAddressID] [int] NOT NULL,
+	[LanguageID] [int] NOT NULL,
+ CONSTRAINT [PK_LanguageAddress] PRIMARY KEY CLUSTERED 
+(
+	[LanguageAddressID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HobbyAddress](
+	[HobbyAddressID] [int] IDENTITY(1,1) NOT NULL,
+	[PersonAddressID] [int] NOT NULL,
+	[HobbyID] [int] NOT NULL,
+ CONSTRAINT [PK_HobbyAddress] PRIMARY KEY CLUSTERED 
+(
+	[HobbyAddressID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Person](
+	[PersonID] [int] IDENTITY(1,1) NOT NULL,
+	[PersonAddressID] [int] NULL,
+	[UserName] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[Password] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[FirstName] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[LastName] [varchar](50) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+ CONSTRAINT [PK_Person] PRIMARY KEY CLUSTERED 
+(
+	[PersonID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
+)
+
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Permission](
+	[PermissionID] [int] IDENTITY(1,1) NOT NULL,
+	[RoleID] [int] NOT NULL,
+	[PersonID] [int] NOT NULL,
+ CONSTRAINT [PK_Permission] PRIMARY KEY CLUSTERED 
+(
+	[PermissionID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
+)
+
+GO
+ALTER TABLE [dbo].[StateMaster]  WITH CHECK ADD  CONSTRAINT [FK_StateMaster_CountryMaster] FOREIGN KEY([CountryID])
+REFERENCES [dbo].[CountryMaster] ([CountryID])
+GO
+ALTER TABLE [dbo].[StateMaster] CHECK CONSTRAINT [FK_StateMaster_CountryMaster]
+GO
+ALTER TABLE [dbo].[PersonAddress]  WITH CHECK ADD  CONSTRAINT [FK_Address_StateMaster1] FOREIGN KEY([StateID])
+REFERENCES [dbo].[StateMaster] ([StateID])
+GO
+ALTER TABLE [dbo].[PersonAddress] CHECK CONSTRAINT [FK_Address_StateMaster1]
+GO
+ALTER TABLE [dbo].[LanguageAddress]  WITH CHECK ADD  CONSTRAINT [FK_LanguageAddress_LanguageMaster] FOREIGN KEY([LanguageID])
+REFERENCES [dbo].[LanguageMaster] ([LanguageID])
+GO
+ALTER TABLE [dbo].[LanguageAddress] CHECK CONSTRAINT [FK_LanguageAddress_LanguageMaster]
+GO
+ALTER TABLE [dbo].[LanguageAddress]  WITH CHECK ADD  CONSTRAINT [FK_LanguageAddress_PersonAddress] FOREIGN KEY([PersonAddressID])
+REFERENCES [dbo].[PersonAddress] ([PersonAddressID])
+GO
+ALTER TABLE [dbo].[LanguageAddress] CHECK CONSTRAINT [FK_LanguageAddress_PersonAddress]
+GO
+ALTER TABLE [dbo].[HobbyAddress]  WITH CHECK ADD  CONSTRAINT [FK_HobbyAddress_HobbyMaster] FOREIGN KEY([HobbyID])
+REFERENCES [dbo].[HobbyMaster] ([HobbyID])
+GO
+ALTER TABLE [dbo].[HobbyAddress] CHECK CONSTRAINT [FK_HobbyAddress_HobbyMaster]
+GO
+ALTER TABLE [dbo].[HobbyAddress]  WITH CHECK ADD  CONSTRAINT [FK_HobbyAddress_PersonAddress] FOREIGN KEY([PersonAddressID])
+REFERENCES [dbo].[PersonAddress] ([PersonAddressID])
+GO
+ALTER TABLE [dbo].[HobbyAddress] CHECK CONSTRAINT [FK_HobbyAddress_PersonAddress]
+GO
+ALTER TABLE [dbo].[Person]  WITH CHECK ADD  CONSTRAINT [FK_Person_PersonAddress] FOREIGN KEY([PersonAddressID])
+REFERENCES [dbo].[PersonAddress] ([PersonAddressID])
+GO
+ALTER TABLE [dbo].[Person] CHECK CONSTRAINT [FK_Person_PersonAddress]
+GO
+ALTER TABLE [dbo].[Permission]  WITH CHECK ADD  CONSTRAINT [FK_Permission_Person] FOREIGN KEY([PersonID])
+REFERENCES [dbo].[Person] ([PersonID])
+GO
+ALTER TABLE [dbo].[Permission] CHECK CONSTRAINT [FK_Permission_Person]
+GO
+ALTER TABLE [dbo].[Permission]  WITH CHECK ADD  CONSTRAINT [FK_Permission_Role] FOREIGN KEY([RoleID])
+REFERENCES [dbo].[Role] ([RoleID])
+GO
+ALTER TABLE [dbo].[Permission] CHECK CONSTRAINT [FK_Permission_Role]
+GO

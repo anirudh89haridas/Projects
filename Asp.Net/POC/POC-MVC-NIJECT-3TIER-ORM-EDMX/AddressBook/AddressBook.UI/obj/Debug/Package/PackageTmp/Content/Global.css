@@ -1,0 +1,23 @@
+﻿body
+{
+}
+.Form
+{
+    overflow: hidden;
+    margin: 1px;
+}
+.FormLabel
+{
+    float: left;
+    width: 150px;
+    padding: 3px;
+    text-align: right;
+    vertical-align: middle;
+}
+.FormField
+{
+    float: left;
+    padding-left: 10px;
+}
+
+

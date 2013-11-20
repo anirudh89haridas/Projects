@@ -1,0 +1,5 @@
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Domain\bin\Debug\AddressBook.Domain.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Domain\bin\Debug\AddressBook.Domain.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Domain\obj\Debug\ResolveAssemblyReference.cache
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Domain\obj\Debug\AddressBook.Domain.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.Domain\obj\Debug\AddressBook.Domain.pdb

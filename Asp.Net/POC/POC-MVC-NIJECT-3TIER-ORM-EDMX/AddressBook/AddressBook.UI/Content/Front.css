@@ -1,0 +1,108 @@
+﻿.Block
+{
+    margin: 5px;
+    overflow: auto;
+    position: relative;
+}
+.Search
+{
+    width: 300px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.ContactList
+{
+    border: 1px solid;
+    overflow: auto;
+}
+.Contact
+{
+    width: 150px;
+    height: 170px;
+    margin: 7px;
+    float: left;
+    position: relative;
+}
+.ContactImage
+{
+    text-align: center;
+}
+.ContactName
+{
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+.Image
+{
+    width: 120px;
+    height: 140px;
+    border: 0px;
+}
+.loading
+{
+    opacity: 0.6;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 100%;
+    z-index: 5000;
+}
+
+#load
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -110px;
+    margin-top: -10px;
+}
+#LoadImage
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -70px;
+    margin-top: -10px;
+}
+
+.Edit, .Delete
+{
+    display: none;
+    position: absolute;
+}
+.Contact:hover .Edit
+{
+    display: block;
+    left: 0;
+    top: 0;
+}
+.Contact:hover .Delete
+{
+    display: block;
+    right: 0;
+    top: 0;
+}
+
+.SearchBox
+{
+    width: 286px;
+    height: 19px;
+    padding: 2px 5px;
+    font-size: 1.4em;
+    color: #333;
+    background: #fff;
+    border: 1px solid #aaa;
+    line-height: 1;
+    font-size: 1.5em;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+img
+{
+    border: 0px;
+}
+

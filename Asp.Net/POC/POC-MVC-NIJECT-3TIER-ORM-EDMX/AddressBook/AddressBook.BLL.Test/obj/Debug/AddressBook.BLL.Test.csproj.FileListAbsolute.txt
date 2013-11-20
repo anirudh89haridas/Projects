@@ -1,0 +1,15 @@
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\AddressBook.BLL.Test.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\AddressBook.BLL.Test.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\nunit.framework.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\nunit.framework.xml
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\obj\Debug\ResolveAssemblyReference.cache
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\obj\Debug\AddressBook.BLL.Test.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\obj\Debug\AddressBook.BLL.Test.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\AddressBook.BLL.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\AddressBook.Domain.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\AddressBook.Infrastructure.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\EntityFramework.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\AddressBook.BLL.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\AddressBook.Domain.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\AddressBook.Infrastructure.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.BLL.Test\bin\Debug\EntityFramework.xml

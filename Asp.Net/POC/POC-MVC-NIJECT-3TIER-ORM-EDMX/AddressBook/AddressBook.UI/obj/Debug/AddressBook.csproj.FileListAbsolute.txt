@@ -1,0 +1,7 @@
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook\bin\AddressBook.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook\bin\AddressBook.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook\bin\EntityFramework.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook\bin\EntityFramework.xml
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook\obj\Debug\ResolveAssemblyReference.cache
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook\obj\Debug\AddressBook.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook\obj\Debug\AddressBook.pdb

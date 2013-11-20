@@ -1,0 +1,10 @@
+﻿@{
+    if(Request.IsAuthenticated)
+    {
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    }
+}

@@ -1,0 +1,61 @@
+﻿@model AddressBook.ViewModel.ContactDetails
+@{
+    ViewBag.Title = "Contact Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<fieldset>
+    <legend style="font-size: x-large">Contacts List</legend>
+    <div class="Search">
+        @using (Html.BeginForm("Index", "ContactDetails"))
+        {
+            <table>
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(x => x.SearchName, new { @class = "SearchBox" })
+                    </td>
+                    <td>
+                        <input type="submit" value="Submit" />
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    <div class="Block">
+        <div class="ContactList">
+            @Html.Partial("ContactList")
+        </div>
+        <div class="loading" id="LoadingContact">
+            <img alt="loading...." id="load" src="../../Images/loading.gif" />
+        </div>
+    </div>
+</fieldset>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // $('.Block').height($(window).height() - 150);
+            $('#SearchName').keyup(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/ContactDetails/Index/",
+                    data: { SearchName: $(this).val() },
+                    beforeSend: function () {
+                        $("#LoadingContact").show().height("100%");
+                    },
+                    success: function () {
+
+                    },
+                    complete: function () {
+                        $(".loading").hide();
+                    },
+                    error: function () {
+                        alert("error");
+                    }
+                }).done(function (result) {
+
+                    $(".ContactList").html(result);
+                });
+            });
+
+        })
+    </script>
+}

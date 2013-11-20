@@ -1,0 +1,63 @@
+﻿@model AddressBook.ViewModel.ContactDetails
+@foreach (var Contact in Model.Contacts)
+{
+    <div class="Contact" id="@Contact.ID">
+        <div class="ContactImage">
+            <img src="../../Images/@Contact.ImageName" class="Image" alt="image" />
+        </div>
+        <div class="ContactName">
+            <a href="#" class="topopup">@Contact.Name</a>
+        </div>
+        <div class="Edit">
+            <a href="@Url.Action("EditContact", new { ID = @Contact.ID })" id="Edit">
+                <img src="../../Images/Edit.png" width="25px" alt="Edit" /></a>
+        </div>
+        <div class="Delete">
+            <a href="#" id="Delete">
+                <img src="../../Images/Delete.png" width="25px" alt="Delete" /></a>
+        </div>
+    </div>   
+    
+}
+
+  @Html.Partial("ContactDetails")
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('a#Delete').on("click", function () {
+            var delid = $(this).parent().parent().attr("id");
+            $("div#" + delid).append("<div class='loading' id='LoadingImage" + delid + "'><img alt='loading....' id='LoadImage' src='../../Images/loading.gif' width='140px' /></div>")
+            var url = "/ContactDetails/DeleteContact/" + delid;
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: "json",
+                beforeSend: function () {
+                    $("#LoadingImage" + delid).show().height("100%");
+                },
+                error: function () {
+                    alert("error");
+                }
+            }).done(function (result) {
+
+                if (result == true) {
+                    $("div#" + delid).animate({ "width": "toggle", "height": "0px" }, {
+                        "complete": function () {
+                            $("div#" + delid).remove();
+                        }
+                    });
+                } else {
+                    alert("Unable To Delete")
+                }
+            });
+        });
+
+    })
+</script>

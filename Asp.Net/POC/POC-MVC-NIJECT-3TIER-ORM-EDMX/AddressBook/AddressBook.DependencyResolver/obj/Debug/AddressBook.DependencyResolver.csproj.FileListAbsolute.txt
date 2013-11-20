@@ -1,0 +1,16 @@
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\AddressBook.DependencyResolver.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\AddressBook.DependencyResolver.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\AddressBook.BLL.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\AddressBook.Infrastructure.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\Ninject.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\AddressBook.Domain.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\EntityFramework.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\AddressBook.BLL.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\AddressBook.Infrastructure.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\Ninject.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\Ninject.xml
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\AddressBook.Domain.pdb
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\bin\Debug\EntityFramework.xml
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\obj\Debug\ResolveAssemblyReference.cache
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\obj\Debug\AddressBook.DependencyResolver.dll
+E:\projects\ASP.NET\MVC\AddressBook\AddressBook.DependencyResolver\obj\Debug\AddressBook.DependencyResolver.pdb
